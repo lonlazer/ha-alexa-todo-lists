@@ -8,7 +8,7 @@
   <img width="60%" alt="image" src="https://github.com/lonlazer/ha-alexa-todo-lists/blob/main/img/todo_lists_visible.png">
 </div>
 
-This custom component for Home Assistant allows you to synchronise your Alexa To-do and ShoppingLists with Home Assistant.
+This custom component for Home Assistant allows you to synchronise your Alexa To-do and Shopping lists with Home Assistant.
 It directly uses the unoffical Alexas APIs (used by the Alexa mobile app) to access the services.
 
 Changes from Home Assistant are reflected immediately in Home Assistant.
