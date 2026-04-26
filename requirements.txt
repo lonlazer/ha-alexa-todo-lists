@@ -1,0 +1,6 @@
+colorlog
+homeassistant==2026.3.2
+ruff
+ty
+aioamazondevices
+pyalexatodo

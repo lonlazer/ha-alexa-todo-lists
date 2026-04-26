@@ -1,0 +1,15 @@
+{
+  "domain": "alexa_todo",
+  "name": "Alexa To-do Lists",
+  "codeowners": [
+    "@lonlazer"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/lonlazer/ha-alexa-todo-lists",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/lonlazer/ha-alexa-todo-lists/issues",
+  "requirements": [
+    "pyalexatodo==0.1.0"
+  ],
+  "version": "0.1.0"
+}

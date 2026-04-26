@@ -1,0 +1,70 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Account ist bereits konfiguriert.",
+      "cannot_connect": "Verbindung fehlgeschlagen.",
+      "invalid_auth": "Ungültige Authentifizierung.",
+      "reauth_successful": "Die erneute Authentifizierung war erfolgreich.",
+      "reconfigure_successful": "Das Account wurde erfolgreich neu konfiguriert.",
+      "unknown": "Unerwarteter Fehler"
+    },
+    "error": {
+      "cannot_connect": "Verbindung fehlgeschlagen.",
+      "cannot_retrieve_data": "Daten konnten von Amazon nicht abgerufen werden. Bitte versuchen Sie es später erneut.",
+      "invalid_auth": "Ungültige Authentifizierung.",
+      "unknown": "Unerwarteter Fehler"
+    },
+    "flow_title": "{username}",
+    "step": {
+      "reauth_confirm": {
+        "data": {
+          "code": "Einmalpasswort (OTP-Code)",
+          "password": "Passwort"
+        },
+        "data_description": {
+          "code": "Das Einmalpasswort für die Anmeldung bei Ihrem Konto. Derzeit werden nur Token von Authentificator-Apps unterstützt.",
+          "password": "Das Passwort Ihres Amazon-Kontos."
+        }
+      },
+      "reconfigure": {
+        "data": {
+          "code": "Einmalpasswort (OTP-Code)",
+          "password": "Passwort"
+        },
+        "data_description": {
+          "code": "Das Einmalpasswort für die Anmeldung bei Ihrem Konto. Derzeit werden nur Token von Authentificator-Apps unterstützt.",
+          "password": "Das Passwort Ihres Amazon-Kontos."
+        }
+      },
+      "user": {
+        "data": {
+          "code": "Einmalpasswort (OTP-Code)",
+          "password": "Passwort",
+          "username": "Benutzername"
+        },
+        "data_description": {
+          "code": "Das Einmalpasswort für die Anmeldung bei Ihrem Konto. Derzeit werden nur Token von Authentificator-Apps unterstützt.",
+          "password": "Das Passwort Ihres Amazon-Kontos.",
+          "username": "Die E-Mail-Adresse Ihres Amazon-Kontos."
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "cannot_connect_with_error": {
+      "message": "Fehler beim Verbinden: {error}"
+    },
+    "cannot_retrieve_data_with_error": {
+      "message": "Fehler beim Abrufen der Daten: {error}"
+    },
+    "config_entry_not_found": {
+      "message": "Konfigurationseintrag nicht gefunden: {device_id}"
+    },
+    "entry_not_loaded": {
+      "message": "Eintrag nicht geladen: {entry}"
+    },
+    "invalid_device_id": {
+      "message": "Ungültige Geräte-ID angegeben: {device_id}"
+    }
+  }
+}

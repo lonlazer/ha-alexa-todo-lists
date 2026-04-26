@@ -1,0 +1,70 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Account is already configured.",
+      "cannot_connect": "Failed to connect.",
+      "invalid_auth": "Invalid authentication.",
+      "reauth_successful": "Re-authentication was successful.",
+      "reconfigure_successful": "Account reconfigured successfully.",
+      "unknown": "Unknown error occurred."
+    },
+    "error": {
+      "cannot_connect": "Failed to connect.",
+      "cannot_retrieve_data": "Unable to retrieve data from Amazon. Please try again later.",
+      "invalid_auth": "Invalid authentication.",
+      "unknown": "Unknown error occurred."
+    },
+    "flow_title": "{username}",
+    "step": {
+      "reauth_confirm": {
+        "data": {
+          "code": "One-time password (OTP code)",
+          "password": "Password"
+        },
+        "data_description": {
+          "code": "The one-time password to log in to your account. Currently, only tokens from OTP applications are supported.",
+          "password": "The password of your Amazon account."
+        }
+      },
+      "reconfigure": {
+        "data": {
+          "code": "One-time password (OTP code)",
+          "password": "Password"
+        },
+        "data_description": {
+          "code": "The one-time password to log in to your account. Currently, only tokens from OTP applications are supported.",
+          "password": "The password of your Amazon account."
+        }
+      },
+      "user": {
+        "data": {
+          "code": "One-time password (OTP code)",
+          "password": "Password",
+          "username": "Username"
+        },
+        "data_description": {
+          "code": "The one-time password to log in to your account. Currently, only tokens from OTP applications are supported.",
+          "password": "The password of your Amazon account.",
+          "username": "The email address of your Amazon account."
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "cannot_connect_with_error": {
+      "message": "Error connecting: {error}"
+    },
+    "cannot_retrieve_data_with_error": {
+      "message": "Error retrieving data: {error}"
+    },
+    "config_entry_not_found": {
+      "message": "Config entry not found: {device_id}"
+    },
+    "entry_not_loaded": {
+      "message": "Entry not loaded: {entry}"
+    },
+    "invalid_device_id": {
+      "message": "Invalid device ID specified: {device_id}"
+    }
+  }
+}
