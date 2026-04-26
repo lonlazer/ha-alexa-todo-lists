@@ -8,15 +8,12 @@
   <img width="60%" alt="image" src="https://github.com/lonlazer/ha-alexa-todo-lists/blob/main/img/todo_lists_visible.png">
 </div>
 
-This custom component for Home Assistant allows you to synchronise your Alexa To-do and Shopping lists with Home Assistant.
-It directly uses the unoffical Alexas APIs (used by the Alexa mobile app) to access the services.
+This custom component for Home Assistant allows you to synchronize your Alexa To-do and Shopping lists with Home Assistant. It directly uses the unofficial Alexas APIs (used by the Alexa mobile app) to access the services. In contrast to previous solutions, no additional servers or selenium scripts are necessary.
 
-Changes from Home Assistant are reflected immediately in Home Assistant.
-Changes initiated from the Alexa side (echo device, alexa app) are **only pulled periodically** from the Amazon servers.
-Currenly the sync interval is set to 10 minutes.
+Changes from Home Assistant are reflected immediately on the Alexa side. Changes initiated from the Alexa side (echo device, Alexa app) are **only pulled periodically** from the Amazon servers. Currently, the sync interval is set to 10 minutes.
 
 The API was reverse-engineered by intercepting the Alexa mobile app's HTTP traffic.
-The API client is implemented in a separate python library `pyalexatodo` ([GitHub](https://github.com/lonlazer/pyalexatodo), [PyPI](https://pypi.org/project/pyalexatodo/)).
+The API client is implemented in a separate Python library `pyalexatodo` ([GitHub](https://github.com/lonlazer/pyalexatodo), [PyPI](https://pypi.org/project/pyalexatodo/)).
 
 __Disclaimer__: This is an unofficial integration and is not created, endorsed, or supported by Amazon.
 
