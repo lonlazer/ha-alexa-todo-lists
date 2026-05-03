@@ -1,8 +1,8 @@
 # HA Alexa To-do Lists
 [![Validate](https://github.com/lonlazer/ha-alexa-todo-lists/actions/workflows/validate.yml/badge.svg)](https://github.com/lonlazer/ha-alexa-todo-lists/actions/workflows/validate.yml)
-[![GitHub release](https://img.shields.io/github/release/lonlazer/ha-alexa-todo-lists-test?include_prereleases=&sort=semver&color=blue)](https://github.com/lonlazer/ha-alexa-todo-lists/releases/)
+[![GitHub release](https://img.shields.io/github/release/lonlazer/ha-alexa-todo-lists?include_prereleases=&sort=semver&color=blue)](https://github.com/lonlazer/ha-alexa-todo-lists/releases/)
 [![License](https://img.shields.io/badge/License-Apache--2.0-blue)](#license)
-[![issues - ha-alexa-todo-lists-test](https://img.shields.io/github/issues/lonlazer/ha-alexa-todo-lists-test)](https://github.com/lonlazer/ha-alexa-todo-lists/issues)
+[![issues - ha-alexa-todo-lists-test](https://img.shields.io/github/issues/lonlazer/ha-alexa-todo-lists)](https://github.com/lonlazer/ha-alexa-todo-lists/issues)
 
 <div align="center">
   <img width="60%" alt="image" src="https://github.com/lonlazer/ha-alexa-todo-lists/blob/main/img/todo_lists_visible.png">
