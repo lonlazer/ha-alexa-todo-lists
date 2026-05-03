@@ -6,6 +6,7 @@ import datetime
 
 # Import to avoid "Detected blocking call to import_module" warning
 import encodings.ascii  # noqa: F401
+import logging
 from typing import TYPE_CHECKING
 
 from homeassistant.components.todo import (
@@ -31,6 +32,7 @@ if TYPE_CHECKING:
     from custom_components.alexa_todo import AlexaTodoListsConfigEntry
 
 
+_LOGGER = logging.getLogger(__name__)
 SCAN_INTERVAL = datetime.timedelta(minutes=10)
 
 
@@ -53,6 +55,8 @@ async def async_setup_entry(
     async with async_update_error_context():
         await alexa_list_api.alexa_echo_api.login.login_mode_stored_data()
         available_lists = await alexa_list_api.get_lists()
+
+    _LOGGER.debug("Found available lists to create entities for: %s", available_lists)
 
     async_add_entities(
         [AlexaToDoList(alexa_list, alexa_list_api) for alexa_list in available_lists],
@@ -86,13 +90,30 @@ class AlexaToDoList(TodoListEntity):
 
         self.name = alexa_list.name
 
+        _LOGGER.debug(
+            "Created todo entity for list: %s (ID: %s)", self._list.name, self._list.id
+        )
+
     async def async_update(self) -> None:
         """Update the To-do list items."""
+        _LOGGER.debug(
+            "Starting async_update for list: %s (ID: %s)",
+            self._list.name,
+            self._list.id,
+        )
+
         async with async_update_error_context():
             await self._alexa_list_api.alexa_echo_api.login.login_mode_stored_data()
             list_items: list[ListItem] = await self._alexa_list_api.get_list_items(
                 self._list.id
             )
+
+        _LOGGER.debug(
+            "Found %s todo items for list: %s (ID: %s)",
+            len(list_items),
+            self._list.name,
+            self._list.id,
+        )
 
         self._alexa_todo_items_lookup: dict[str, ListItem] = {
             item.id: item for item in list_items
@@ -120,9 +141,19 @@ class AlexaToDoList(TodoListEntity):
             ServiceValidationError: If the item summary is missing.
 
         """
+        _LOGGER.debug(
+            "Creating todo item: %s for list: %s", item.summary, self._list.name
+        )
+
         if not item.summary:
             raise ServiceValidationError
         await self._alexa_list_api.add_item(self._list.id, item.summary)
+
+        _LOGGER.debug(
+            "Successfully created todo item: %s for list: %s",
+            item.summary,
+            self._list.name,
+        )
 
     @alexa_api_call
     async def async_delete_todo_items(self, uids: list[str]) -> None:
@@ -133,9 +164,23 @@ class AlexaToDoList(TodoListEntity):
             uids: The unique IDs of the items to delete.
 
         """
+        _LOGGER.debug("Called async_delete_todo_items for %s item(s).", len(uids))
+
         for uid in uids:
             version = self._alexa_todo_items_lookup[uid].version
+            _LOGGER.debug(
+                "Deleting item %s (ID: %s) with version %s.",
+                self._alexa_todo_items_lookup[uid].name,
+                uid,
+                version,
+            )
             await self._alexa_list_api.delete_item(self._list.id, uid, version)
+            _LOGGER.debug(
+                "Successfully deleted item %s (ID: %s) with version %s.",
+                self._alexa_todo_items_lookup[uid].name,
+                uid,
+                version,
+            )
 
     @alexa_api_call
     async def async_update_todo_item(self, item: TodoItem) -> None:
@@ -156,14 +201,26 @@ class AlexaToDoList(TodoListEntity):
 
         if existing_item.name != item.summary:
             # Name has changed, update it
+            _LOGGER.debug("Updating item %s with new name %s.", item.uid, item.summary)
             await self._alexa_list_api.rename_item(
                 self._list.id, item.uid, item.summary, existing_item.version
             )
+            _LOGGER.debug(
+                "Successfully updated item %s with new name %s.", item.uid, item.summary
+            )
         else:
-            # Onlyupdate the checked status
+            # Only update the checked status
+            _LOGGER.debug(
+                "Updating item %s with checked status %s.", item.uid, item.status
+            )
             await self._alexa_list_api.set_item_checked_status(
                 self._list.id,
                 item.uid,
                 item.status == TodoItemStatus.COMPLETED,
                 existing_item.version,
+            )
+            _LOGGER.debug(
+                "Successfully updated item %s with checked status %s.",
+                item.uid,
+                item.status,
             )
