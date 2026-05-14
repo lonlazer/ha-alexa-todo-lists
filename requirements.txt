@@ -3,4 +3,4 @@ homeassistant==2026.3.2
 ruff
 ty
 aioamazondevices
-pyalexatodo
+pyalexatodo==0.2.0
