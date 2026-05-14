@@ -104,8 +104,17 @@ class AlexaToDoList(TodoListEntity):
 
         async with async_update_error_context():
             await self._alexa_list_api.alexa_echo_api.login.login_mode_stored_data()
-            list_items: list[ListItem] = await self._alexa_list_api.get_list_items(
-                self._list.id
+            (
+                list_items,
+                has_more,
+            ) = await self._alexa_list_api.get_list_items_check_has_more(self._list.id)
+
+        if has_more:
+            _LOGGER.warning(
+                "List %s has more than 100 items. "
+                "For performace reasons only the 100 most recent items are loaded. "
+                "Please delete unecessary/comepleted items via the Alexa App.",
+                self._list.name,
             )
 
         _LOGGER.debug(
