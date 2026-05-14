@@ -12,8 +12,13 @@ This custom component for Home Assistant allows you to synchronize your Alexa To
 
 Changes from Home Assistant are reflected immediately on the Alexa side. Changes initiated from the Alexa side (echo device, Alexa app) are **only pulled periodically** from the Amazon servers. Currently, the sync interval is set to 10 minutes.
 
+Only **the latest 100 items** are pulled from the Amazon servers. If a list has more than 100 items, the oldest items will not be visible in Home Assistant. To remove them, you need to delete them via the Alexa App.
+The API only returns up to 100 items in one request.
+Furthermore, Home Assitant has to keep all items in memory.
+Therefore the limit of 100 items per list seems reasonable.
+
 The API was reverse-engineered by intercepting the Alexa mobile app's HTTP traffic.
-The API client is implemented in a separate Python library `pyalexatodo` ([GitHub](https://github.com/lonlazer/pyalexatodo), [PyPI](https://pypi.org/project/pyalexatodo/)).
+The API client was implemented as a separate Python library by me: `pyalexatodo` ([GitHub](https://github.com/lonlazer/pyalexatodo), [PyPI](https://pypi.org/project/pyalexatodo/)).
 
 __Disclaimer__: This is an unofficial integration and is not created, endorsed, or supported by Amazon.
 
@@ -99,5 +104,5 @@ scripts/develop.sh
 ## Credits
 - [Alexa Devices Integration](https://www.home-assistant.io/integrations/alexa_devices/): Some parts of the code (especcialy the configuration flow) were adapted from the Alexa Devices integration.
 - [aioamazondevices](https://github.com/chemelli74/aioamazondevices): This library is used for logging in and making authentified API calls to Amazon.
-- [pyalexatodo](https://github.com/lonlazer/pyalexatodo): This library is used for signing in and making authentified API calls to Amazon (developed by me for this integration)
+- [pyalexatodo](https://github.com/lonlazer/pyalexatodo): This library contains the API client for the unofficial Alexa Lists APIs (developed by me for this integration)
 
