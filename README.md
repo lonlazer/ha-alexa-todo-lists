@@ -12,7 +12,6 @@ This custom component for Home Assistant allows you to synchronize your Alexa To
 
 Changes from Home Assistant are reflected immediately on the Alexa side. Changes initiated from the Alexa side (echo device, Alexa app) are **only pulled periodically** from the Amazon servers. Currently, the sync interval is set to 10 minutes.
 
-The API was reverse-engineered by intercepting the Alexa mobile app's HTTP traffic.
 The API client is implemented in a separate Python library `pyalexatodo` ([GitHub](https://github.com/lonlazer/pyalexatodo), [PyPI](https://pypi.org/project/pyalexatodo/)).
 
 __Disclaimer__: This is an unofficial integration and is not created, endorsed, or supported by Amazon.
@@ -97,7 +96,7 @@ scripts/develop.sh
 ```
 
 ## Credits
-- [Alexa Devices Integration](https://www.home-assistant.io/integrations/alexa_devices/): Some parts of the code (especcialy the configuration flow) were adapted from the Alexa Devices integration.
+- [Alexa Devices Integration](https://www.home-assistant.io/integrations/alexa_devices/): Some parts of the code (especially the configuration flow) were adapted from the Alexa Devices integration.
 - [aioamazondevices](https://github.com/chemelli74/aioamazondevices): This library is used for logging in and making authentified API calls to Amazon.
 - [pyalexatodo](https://github.com/lonlazer/pyalexatodo): This library is used for signing in and making authentified API calls to Amazon (developed by me for this integration)
 
