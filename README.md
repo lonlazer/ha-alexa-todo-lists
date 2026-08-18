@@ -1,4 +1,12 @@
 # HA Alexa To-do Lists
+
+> [!IMPORTANT]
+> **Project Retired / Deprecated**
+> 
+> Great news! I contributed this feature directly to Home Assistant Core, and it is now officially part of the [**Alexa Devices**](https://www.home-assistant.io/integrations/alexa_devices) integration as of Home Assistant Core [**version 2026.7**](https://www.home-assistant.io/blog/2026/07/01/release-20267/#noteworthy-improvements-to-existing-integrations).
+> 
+> As a result, this repository will no longer be updated. Please switch to the official core integration—it works even better by using **HTTP/2 push** for immediate updates instead of periodic polling.
+
 [![Validate](https://github.com/lonlazer/ha-alexa-todo-lists/actions/workflows/validate.yml/badge.svg)](https://github.com/lonlazer/ha-alexa-todo-lists/actions/workflows/validate.yml)
 [![GitHub release](https://img.shields.io/github/release/lonlazer/ha-alexa-todo-lists?include_prereleases=&sort=semver&color=blue)](https://github.com/lonlazer/ha-alexa-todo-lists/releases/)
 [![License](https://img.shields.io/badge/License-Apache--2.0-blue)](#license)
